@@ -1,0 +1,38 @@
+<html>
+<head><h2>AJAX</h2>
+<script type="javascript/text">
+ 
+    var xmlhttp = new XMLHttpRequest();
+ 
+    function UpdateData() {
+        xmlhttp.onreadystatechange=useResponse;
+        xmlhttp.open("GET", "/data.do", true);
+        xmlhttp.send(null);
+    }
+ 
+    function useResponse() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            document.getElementById("dataDiv").innerHTML=xmlhttp.responseText;
+        } else {
+            alert("Error in AJAX");
+        }
+    }
+ 
+</script>
+</head>
+ 
+<body>
+    <div id="buttonDiv">
+        <input type="submit" onClick="UpdateData()" value="UpdateDataBelow">
+    </div>
+ 
+    <br><br>
+ 
+    <div id="dataDiv">
+        <h3> Data to be Changed.</h3>
+    </div>
+ 
+    </form>
+</body>
+</html>
+
